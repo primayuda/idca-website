@@ -1,0 +1,178 @@
+---
+import { Badge } from "@/components/ui/badge";
+
+const featured = {
+  image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1400&q=85",
+  category: { id: "Konservasi", en: "Conservation" },
+  readTime: "3 min read",
+  title: {
+    id: "Kolaborasi Marine Actions — Save Raja Ampat",
+    en: "Marine Actions Collaboration — Save Raja Ampat",
+  },
+  body: {
+    id: "IDCA berkolaborasi dengan Marine Actions untuk mendukung kampanye pelestarian Raja Ampat dari ancaman tambang nikel, memperkuat komitmen industri selam terhadap lingkungan laut Indonesia.",
+    en: "IDCA collaborated with Marine Actions to support the Save Raja Ampat campaign against nickel mining threats, reinforcing the dive industry's commitment to marine conservation in Indonesia.",
+  },
+  meta: { id: "2025 • Konservasi Laut • Kampanye Nasional", en: "2025 • Marine Conservation • National Campaign" },
+};
+
+const articles = [
+  {
+    image: "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=700&q=85",
+    category: "Expo",
+    year: "2026",
+    tag: { id: "Asia Dive Expo", en: "Asia Dive Expo" },
+    title: { id: "IDCA Hadir di ASIA DIVE EXPO 2026", en: "IDCA at ASIA DIVE EXPO 2026" },
+    body: {
+      id: "IDCA memperkenalkan destinasi selam Indonesia kepada audiens internasional di ADEX 2026, memperluas jaringan industri global.",
+      en: "IDCA showcased Indonesia's dive destinations to an international audience at ADEX 2026, expanding global industry networks.",
+    },
+  },
+  {
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=700&q=85",
+    category: "Event",
+    year: "2027",
+    tag: { id: "DRT Show", en: "DRT Show" },
+    title: { id: "DRT Show Indonesia 2027 — Siapkah Brand Anda?", en: "DRT Show Indonesia 2027 — Is Your Brand Ready?" },
+    body: {
+      id: "DRT Show Indonesia 2027 mempertemukan brand selam, resort, dan stakeholder industri. Industri selam terus bertumbuh.",
+      en: "DRT Show Indonesia 2027 brings together dive brands, resorts, and industry stakeholders. Indonesia's diving industry is growing.",
+    },
+  },
+  {
+    image: "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?w=700&q=85",
+    category: "Organisasi",
+    year: "Februari 2025",
+    tag: { id: "Musyawarah Nasional", en: "National Congress" },
+    title: { id: "Sambutan Ketua Terpilih Ebram Harimurti 2025", en: "Inaugural Address — Chairman Ebram Harimurti 2025" },
+    body: {
+      id: "Ebram Harimurti resmi dilantik sebagai Ketua IDCA Periode 2025, menegaskan komitmen memperkuat industri wisata selam nasional.",
+      en: "Ebram Harimurti was officially inaugurated as IDCA Chairman for 2025, affirming commitment to strengthen Indonesia's dive tourism industry.",
+    },
+  },
+  {
+    image: "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=700&q=85",
+    category: "Webinar",
+    year: "2024",
+    tag: { id: "Forum Industri", en: "Industry Forum" },
+    title: { id: "Webinar Industri Selam — Peluang Pasca Pandemi", en: "Dive Industry Webinar — Post-Pandemic Opportunities" },
+    body: {
+      id: "Seri webinar IDCA membahas strategi pemulihan, standar keselamatan, dan peluang pasar bagi operator wisata selam di era baru.",
+      en: "IDCA webinar series discussing recovery strategies, safety standards, and market opportunities for dive operators in the new era.",
+    },
+  },
+  {
+    image: "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=700&q=85",
+    category: "International",
+    year: "Juni 2026",
+    tag: { id: "Scuba Show", en: "Scuba Show" },
+    title: { id: "Indonesia Selam di Scuba Show Atlantic City 2026", en: "Indonesia Dive at Scuba Show Atlantic City 2026" },
+    body: {
+      id: "Anggota IDCA membawa keindahan destinasi selam Indonesia ke Scuba Show Atlantic City, mempromosikan wisata bahari di pasar Amerika Utara.",
+      en: "IDCA members brought Indonesia's dive destinations to Scuba Show Atlantic City, promoting Indonesian marine tourism in North America.",
+    },
+  },
+  {
+    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=700&q=85",
+    category: "Expo",
+    year: "2026",
+    tag: { id: "GO Diving Show", en: "GO Diving Show" },
+    title: { id: "IDCA di GO Diving Show UK 2026", en: "IDCA at GO Diving Show UK 2026" },
+    body: {
+      id: "IDCA hadir di GO Diving Show UK, salah satu pameran selam terbesar Eropa, mempromosikan destinasi unggulan Indonesia kepada penyelam Eropa.",
+      en: "IDCA participated in GO Diving Show UK, one of Europe's largest dive expos, promoting Indonesia's top destinations to European divers.",
+    },
+  },
+];
+---
+
+<section id="news" class="bg-elevated py-24">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="flex flex-col gap-3">
+      <p class="font-mono-idca text-xs uppercase tracking-[0.25em] text-reef">
+        <span lang="id">Berita &amp; Kegiatan</span>
+        <span lang="en">News &amp; Activities</span>
+      </p>
+      <h2 class="font-display text-4xl font-extrabold text-heading sm:text-5xl">
+        <span lang="id">Berita Terkini</span>
+        <span lang="en">Latest News</span>
+      </h2>
+      <p class="max-w-2xl text-foreground/60">
+        <span lang="id">Ikuti perkembangan terbaru IDCA — dari expo internasional hingga aksi pelestarian laut.</span>
+        <span lang="en">Stay updated with IDCA's latest developments — from international expos to marine conservation action.</span>
+      </p>
+    </div>
+
+    <!-- Featured article -->
+    <a href="#" class="group mt-12 grid gap-6 overflow-hidden rounded-2xl border border-border bg-sand lg:grid-cols-2">
+      <div class="relative aspect-[16/10] overflow-hidden lg:aspect-auto">
+        <img
+          src={featured.image}
+          alt=""
+          class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          loading="lazy"
+        />
+        <Badge className="absolute left-4 top-4 border-none bg-coral text-foam">
+          <span lang="id">⭐ Artikel Utama</span>
+          <span lang="en">⭐ Featured</span>
+        </Badge>
+      </div>
+      <div class="flex flex-col justify-center p-7 lg:p-10">
+        <div class="flex items-center gap-3 text-xs font-medium uppercase tracking-wide text-reef">
+          <span lang="id">{featured.category.id}</span>
+          <span lang="en">{featured.category.en}</span>
+          <span class="text-foreground/30">•</span>
+          <span>{featured.readTime}</span>
+        </div>
+        <h3 class="mt-3 font-display text-2xl font-bold leading-tight text-heading sm:text-3xl">
+          <span lang="id">{featured.title.id}</span>
+          <span lang="en">{featured.title.en}</span>
+        </h3>
+        <p class="mt-4 text-sm leading-relaxed text-foreground/65">
+          <span lang="id">{featured.body.id}</span>
+          <span lang="en">{featured.body.en}</span>
+        </p>
+        <p class="mt-5 text-xs font-medium uppercase tracking-wide text-foreground/40">
+          <span lang="id">{featured.meta.id}</span>
+          <span lang="en">{featured.meta.en}</span>
+        </p>
+      </div>
+    </a>
+
+    <!-- Article grid -->
+    <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {articles.map((a) => (
+        <a href="#" class="group flex flex-col overflow-hidden rounded-2xl border border-border bg-elevated transition-shadow hover:shadow-lg">
+          <div class="relative aspect-[16/10] overflow-hidden">
+            <img
+              src={a.image}
+              alt=""
+              class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+            <Badge variant="secondary" className="absolute left-3 top-3 border-none bg-abyss/85 text-foam">
+              {a.category}
+            </Badge>
+          </div>
+          <div class="flex flex-1 flex-col p-5">
+            <p class="text-xs font-medium uppercase tracking-wide text-foreground/40">
+              {a.year} · <span lang="id">{a.tag.id}</span><span lang="en">{a.tag.en}</span>
+            </p>
+            <h3 class="mt-2 font-display text-lg font-bold leading-snug text-heading">
+              <span lang="id">{a.title.id}</span>
+              <span lang="en">{a.title.en}</span>
+            </h3>
+            <p class="mt-2 flex-1 text-sm leading-relaxed text-foreground/60">
+              <span lang="id">{a.body.id}</span>
+              <span lang="en">{a.body.en}</span>
+            </p>
+            <span class="mt-4 font-display text-sm font-bold text-reef">
+              <span lang="id">Selengkapnya →</span>
+              <span lang="en">Read More →</span>
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

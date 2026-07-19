@@ -1,0 +1,86 @@
+---
+const pillars = [
+  {
+    label: { id: "Visi", en: "Vision" },
+    body: {
+      id: "Menjadikan Indonesia sebagai destinasi wisata selam kelas dunia yang berkelanjutan dan berdaya saing global.",
+      en: "To make Indonesia a world-class, sustainable, and globally competitive dive tourism destination.",
+    },
+  },
+  {
+    label: { id: "Misi", en: "Mission" },
+    body: {
+      id: "Memperkuat ekosistem usaha wisata selam melalui kolaborasi industri, pengembangan SDM, serta perlindungan terhadap lingkungan laut Indonesia.",
+      en: "To strengthen the dive tourism ecosystem through industry collaboration, human resource development, and protection of Indonesia's marine environment.",
+    },
+  },
+  {
+    label: { id: "Nilai", en: "Values" },
+    body: {
+      id: "Profesionalisme · Keberlanjutan · Kolaborasi · Integritas · Cinta Bahari",
+      en: "Professionalism · Sustainability · Collaboration · Integrity · Love for the Sea",
+    },
+  },
+];
+---
+
+<section id="about" class="bg-sand py-24">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="grid gap-14 lg:grid-cols-[0.9fr_1.1fr]">
+      <div>
+        <p class="font-mono-idca text-xs uppercase tracking-[0.25em] text-reef">
+          <span lang="id">Tentang Kami</span>
+          <span lang="en">About Us</span>
+        </p>
+        <h2 class="mt-4 font-display text-4xl font-extrabold leading-tight text-heading sm:text-5xl">
+          <span lang="id">IDCA — Siapa Kami</span>
+          <span lang="en">IDCA — Who We Are</span>
+        </h2>
+        <div class="mt-6 space-y-4 text-base leading-relaxed text-foreground/70">
+          <p lang="id">
+            <strong class="text-heading">Indonesia Dive-tourism Company Association (IDCA)</strong> —
+            atau dikenal sebagai <em>Perkumpulan Usaha Wisata Selam Indonesia (PUWSI)</em> — adalah
+            asosiasi resmi yang mewadahi perusahaan-perusahaan usaha wisata selam di Indonesia.
+          </p>
+          <p lang="en">
+            <strong class="text-heading">Indonesia Dive-tourism Company Association (IDCA)</strong> —
+            also known as <em>Perkumpulan Usaha Wisata Selam Indonesia (PUWSI)</em> — is the
+            official association representing dive-tourism venture companies across Indonesia.
+          </p>
+          <p lang="id">
+            Berbasis di Jakarta, IDCA menjadi jembatan antara operator selam, resort bahari, dive
+            center, dan pemangku kepentingan industri pariwisata bahari Indonesia. Bersama, kami
+            mendorong standar industri, advokasi kebijakan, dan promosi destinasi selam Indonesia
+            ke panggung global.
+          </p>
+          <p lang="en">
+            Based in Jakarta, IDCA serves as the bridge between dive operators, marine resorts,
+            dive centers, and stakeholders of Indonesia's marine tourism industry. Together, we
+            drive industry standards, policy advocacy, and promote Indonesia's dive destinations
+            on the global stage.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2">
+        {pillars.map((p, i) => (
+          <div
+            class={`rounded-2xl border border-border bg-elevated p-7 shadow-sm ${
+              i === 2 ? "sm:col-span-2" : ""
+            }`}
+          >
+            <span class="font-mono-idca text-xs text-reef">0{i + 1}</span>
+            <h3 class="mt-2 font-display text-xl font-bold text-heading">
+              <span lang="id">{p.label.id}</span>
+              <span lang="en">{p.label.en}</span>
+            </h3>
+            <p class="mt-3 text-sm leading-relaxed text-foreground/65">
+              <span lang="id">{p.body.id}</span>
+              <span lang="en">{p.body.en}</span>
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

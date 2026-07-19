@@ -1,0 +1,119 @@
+---
+import RegisterForm from "./RegisterForm";
+
+const members = [
+  { type: "Dive Center", name: "PUWSI – Jakarta", location: "Jakarta, Indonesia" },
+  { type: "Live Aboard", name: "Pearl Fleet Indonesia", location: "Bali / Raja Ampat, Indonesia" },
+  { type: "Dive Resort", name: "Raja Ampat Dive Lodge", location: "Raja Ampat, Papua Barat" },
+  { type: "Dive Operator", name: "Komodo Dive Center", location: "Labuan Bajo, NTT" },
+  { type: "Dive Center", name: "Bali Dive Academy", location: "Bali, Indonesia" },
+  { type: "Marine Tourism", name: "Sulawesi Dive Haven", location: "Manado, Sulawesi Utara" },
+  { type: "Dive Operator", name: "Lombok Blue Dive", location: "Lombok, NTB" },
+  { type: "Liveaboard Operator", name: "Nusa Laut Expeditions", location: "Ambon, Maluku" },
+];
+
+const benefits = [
+  {
+    icon: "🌐",
+    label: { id: "Jaringan Industri", en: "Industry Network" },
+    body: { id: "Akses ke seluruh operator selam di 34 provinsi", en: "Access to dive operators across 34 provinces" },
+  },
+  {
+    icon: "🤿",
+    label: { id: "Event Internasional", en: "International Events" },
+    body: { id: "Representasi di pameran selam dunia (DEMA, GO Diving)", en: "Representation at world dive expos (DEMA, GO Diving)" },
+  },
+  {
+    icon: "📣",
+    label: { id: "Promosi Bersama", en: "Joint Promotion" },
+    body: { id: "Promosi destinasi & produk melalui platform IDCA", en: "Destination & product promotion via IDCA platforms" },
+  },
+  {
+    icon: "⚖️",
+    label: { id: "Advokasi Kebijakan", en: "Policy Advocacy" },
+    body: { id: "Suara industri selam di tingkat nasional", en: "Dive industry voice at national level" },
+  },
+];
+---
+
+<section id="members" class="bg-sand py-24">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <p class="font-mono-idca text-xs uppercase tracking-[0.25em] text-reef">
+      <span lang="id">Anggota Kami</span>
+      <span lang="en">Our Members</span>
+    </p>
+    <h2 class="mt-4 font-display text-4xl font-extrabold text-heading sm:text-5xl">
+      <span lang="id">Anggota IDCA</span>
+      <span lang="en">IDCA Members</span>
+    </h2>
+    <p class="mt-3 max-w-2xl text-foreground/60">
+      <span lang="id">
+        IDCA menyatukan perusahaan-perusahaan usaha wisata selam terkemuka dari seluruh penjuru
+        Nusantara — dari dive center metropolitan hingga resort bahari di destinasi premium
+        Indonesia.
+      </span>
+      <span lang="en">
+        IDCA unites leading dive-tourism companies from across the archipelago — from metropolitan
+        dive centers to marine resorts at Indonesia's premium destinations.
+      </span>
+    </p>
+
+    <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {members.map((m) => (
+        <div class="rounded-2xl border border-border bg-elevated p-5 transition-shadow hover:shadow-md">
+          <span class="inline-block rounded-full bg-reef/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-reef">
+            {m.type}
+          </span>
+          <p class="mt-3 font-display text-base font-bold text-heading">{m.name}</p>
+          <p class="mt-1 text-sm text-foreground/50">{m.location}</p>
+          <p class="mt-3 text-[11px] font-semibold uppercase tracking-wide text-coral">Member IDCA</p>
+        </div>
+      ))}
+    </div>
+
+    <p class="mt-6 text-center text-sm text-foreground/50">
+      <span lang="id">+ Banyak lagi anggota — Hubungi kami untuk daftar lengkap</span>
+      <span lang="en">+ Many more members — Contact us for the full directory</span>
+    </p>
+
+    <!-- Join panel -->
+    <div class="mt-20 grid gap-12 rounded-3xl bg-abyss p-8 text-foam sm:p-12 lg:grid-cols-2 lg:p-16">
+      <div>
+        <h3 class="font-display text-3xl font-extrabold leading-tight sm:text-4xl">
+          <span lang="id">Bergabung dengan IDCA</span>
+          <span lang="en">Become an IDCA Member</span>
+        </h3>
+        <p class="mt-4 text-foam/65">
+          <span lang="id">
+            Jadilah bagian dari jaringan usaha wisata selam terkuat di Indonesia. Isi formulir
+            pendaftaran dan tim kami akan menghubungi Anda segera via WhatsApp.
+          </span>
+          <span lang="en">
+            Join Indonesia's strongest dive tourism business network. Fill in the registration
+            form and our team will contact you promptly via WhatsApp.
+          </span>
+        </p>
+
+        <div class="mt-8 grid gap-5 sm:grid-cols-2">
+          {benefits.map((b) => (
+            <div>
+              <span class="text-2xl">{b.icon}</span>
+              <p class="mt-2 font-display text-sm font-bold text-foam">
+                <span lang="id">{b.label.id}</span>
+                <span lang="en">{b.label.en}</span>
+              </p>
+              <p class="mt-1 text-xs leading-relaxed text-foam/55">
+                <span lang="id">{b.body.id}</span>
+                <span lang="en">{b.body.en}</span>
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="rounded-2xl bg-elevated p-6 sm:p-8">
+        <RegisterForm client:visible />
+      </div>
+    </div>
+  </div>
+</section>

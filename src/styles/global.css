@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap");
+@import "tailwindcss";
+
+@theme {
+  /* ---- IDCA design tokens ---- */
+  --color-abyss: #0a2540;         /* deep ocean navy - dark sections / overlays */
+  --color-abyss-deep: #06192c;    /* darkest, for footer */
+  --color-reef: #0d7377;          /* primary teal accent */
+  --color-reef-light: #12a3a8;
+  --color-coral: #ff6f4e;         /* warm coral accent for CTAs / highlights */
+  --color-coral-light: #ff8f74;
+  --color-sand: #f5f0e6;          /* warm light background */
+  --color-sand-dim: #ece4d3;
+  --color-ink: #10202e;           /* body text on light */
+  --color-foam: #ffffff;
+
+  /* Theme-aware surfaces (overridden in dark mode) */
+  --color-heading: var(--color-abyss);
+  --color-elevated: #ffffff;
+
+  --font-display: "Bricolage Grotesque", "Inter", sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  /* shadcn semantic tokens mapped to IDCA palette */
+  --color-background: var(--color-sand);
+  --color-foreground: var(--color-ink);
+  --color-primary: var(--color-reef);
+  --color-primary-foreground: var(--color-foam);
+  --color-secondary: var(--color-abyss);
+  --color-secondary-foreground: var(--color-foam);
+  --color-muted: var(--color-sand-dim);
+  --color-muted-foreground: #5c6b74;
+  --color-accent: var(--color-sand-dim);
+  --color-accent-foreground: var(--color-ink);
+  --color-card: var(--color-foam);
+  --color-card-foreground: var(--color-ink);
+  --color-popover: var(--color-foam);
+  --color-popover-foreground: var(--color-ink);
+  --color-border: #ddd4c1;
+  --color-input: #ddd4c1;
+  --color-ring: var(--color-reef);
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --color-sand: #0e1926;
+  --color-sand-dim: #152232;
+  --color-ink: #c8d4dc;
+  --color-heading: #e8eef2;
+  --color-elevated: #162232;
+  --color-background: var(--color-sand);
+  --color-foreground: var(--color-ink);
+  --color-card: var(--color-elevated);
+  --color-card-foreground: var(--color-ink);
+  --color-popover: var(--color-elevated);
+  --color-popover-foreground: var(--color-ink);
+  --color-muted: var(--color-sand-dim);
+  --color-muted-foreground: #8a9ba8;
+  --color-accent: var(--color-sand-dim);
+  --color-accent-foreground: var(--color-heading);
+  --color-border: #2a3d52;
+  --color-input: #2a3d52;
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  ::selection {
+    background-color: var(--color-coral);
+    color: var(--color-foam);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-mono-idca {
+    font-family: var(--font-mono);
+  }
+
+  /* Bilingual toggle: html[data-lang] controls which language spans show.
+     Exclude <html> itself — it also carries lang= for a11y/SEO. */
+  [lang="id"]:not(html),
+  [lang="en"]:not(html) {
+    display: none;
+  }
+  html[data-lang="id"] [lang="id"]:not(html) {
+    display: revert;
+  }
+  html[data-lang="en"] [lang="en"]:not(html) {
+    display: revert;
+  }
+
+  /* Bathymetric contour-line background texture (signature motif) */
+  .bg-contours {
+    background-image: repeating-radial-gradient(
+      circle at 15% 20%,
+      rgba(255, 255, 255, 0.05) 0px,
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px,
+      transparent 34px
+    );
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}

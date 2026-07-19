@@ -1,0 +1,31 @@
+---
+interface Props {
+  dark?: boolean;
+  class?: string;
+}
+const { dark = false, class: className = "" } = Astro.props;
+---
+
+<span class={`inline-flex items-center ${className}`}>
+  {dark ? (
+    <span class="rounded-xl bg-foam p-1.5 shadow-sm">
+      <picture>
+        <source srcset="/logo/idca-logo-compact.webp" type="image/webp" />
+        <img
+          src="/logo/idca-logo-compact.png"
+          alt="IDCA — Indonesia Dive-tourism Company Association"
+          class="h-7 w-auto"
+        />
+      </picture>
+    </span>
+  ) : (
+    <picture>
+      <source srcset="/logo/idca-logo-compact.webp" type="image/webp" />
+      <img
+        src="/logo/idca-logo-compact.png"
+        alt="IDCA — Indonesia Dive-tourism Company Association"
+        class="h-9 w-auto sm:h-10"
+      />
+    </picture>
+  )}
+</span>

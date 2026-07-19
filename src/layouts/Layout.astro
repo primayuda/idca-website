@@ -1,0 +1,54 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "IDCA — Indonesia Dive-tourism Company Association",
+  description = "Perkumpulan Usaha Wisata Selam Indonesia. Menyatukan pelaku usaha wisata selam Indonesia untuk mendorong pertumbuhan industri bahari yang berkelanjutan.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="id" data-lang="id" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/logo/idca-logo-full.png" />
+    <title>{title}</title>
+    <script is:inline>
+      (function () {
+        try {
+          var lang = localStorage.getItem("idca-lang") || "id";
+          document.documentElement.dataset.lang = lang;
+        } catch (e) {}
+
+        try {
+          var stored = localStorage.getItem("idca-theme");
+          var theme =
+            stored === "dark" || stored === "light"
+              ? stored
+              : window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light";
+          document.documentElement.dataset.theme = theme;
+        } catch (e) {
+          document.documentElement.dataset.theme = "light";
+        }
+      })();
+    </script>
+  </head>
+  <body class="font-body bg-background text-foreground">
+    <slot />
+  </body>
+</html>

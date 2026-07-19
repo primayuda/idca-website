@@ -1,0 +1,106 @@
+---
+import Logo from "./Logo.astro";
+import SocialIcon from "./SocialIcon.astro";
+
+const nav = [
+  { href: "#about", id: "Tentang Kami", en: "About Us" },
+  { href: "#news", id: "News", en: "News" },
+  { href: "#members", id: "Member", en: "Members" },
+  { href: "#destinations", id: "Destinasi Selam", en: "Dive Destinations" },
+];
+---
+
+<footer class="relative overflow-hidden bg-abyss-deep text-foam">
+  <div class="bg-contours absolute inset-0"></div>
+  <div class="relative mx-auto max-w-7xl px-5 py-16 sm:px-8">
+    <div class="grid gap-12 lg:grid-cols-[1.3fr_0.8fr_0.9fr]">
+      <div>
+        <Logo dark />
+        <p class="mt-5 max-w-sm text-sm leading-relaxed text-foam/55">
+          <span lang="id">
+            Indonesia Dive-tourism Company Association (IDCA) — Perkumpulan Usaha Wisata Selam
+            Indonesia. Bersama mendorong wisata selam Indonesia ke panggung dunia.
+          </span>
+          <span lang="en">
+            Indonesia Dive-tourism Company Association (IDCA) — Perkumpulan Usaha Wisata Selam
+            Indonesia. Together, bringing Indonesian dive tourism to the world stage.
+          </span>
+        </p>
+        <div class="mt-6 flex gap-3">
+          <a
+            href="https://www.instagram.com/diveassociation.id/"
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label="Instagram — @diveassociation.id"
+            class="flex h-11 w-11 items-center justify-center rounded-full border border-foam/20 text-foam/70 transition-colors hover:border-foam/50 hover:bg-foam/10 hover:text-foam"
+          >
+            <SocialIcon name="instagram" />
+          </a>
+          <a
+            href="https://wa.me/6281212343407"
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label="WhatsApp — +62 812 1234 3407"
+            class="flex h-11 w-11 items-center justify-center rounded-full border border-foam/20 text-foam/70 transition-colors hover:border-foam/50 hover:bg-foam/10 hover:text-foam"
+          >
+            <SocialIcon name="whatsapp" />
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <p class="font-display text-sm font-bold uppercase tracking-wide text-foam/80">
+          <span lang="id">Navigasi</span>
+          <span lang="en">Navigation</span>
+        </p>
+        <ul class="mt-4 space-y-3 text-sm text-foam/55">
+          {nav.map((l) => (
+            <li>
+              <a href={l.href} class="hover:text-foam">
+                <span lang="id">{l.id}</span>
+                <span lang="en">{l.en}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <p class="font-display text-sm font-bold uppercase tracking-wide text-foam/80">
+          <span lang="id">Kontak</span>
+          <span lang="en">Contact</span>
+        </p>
+        <ul class="mt-4 space-y-3 text-sm text-foam/55">
+          <li>📍 Jakarta, Indonesia</li>
+          <li>
+            <a
+              href="https://wa.me/6281212343407"
+              target="_blank"
+              rel="noreferrer noopener"
+              class="inline-flex items-center gap-2 hover:text-foam"
+            >
+              <SocialIcon name="whatsapp" class="h-4 w-4 shrink-0" />
+              +62 812 1234 3407
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.instagram.com/diveassociation.id/"
+              target="_blank"
+              rel="noreferrer noopener"
+              class="inline-flex items-center gap-2 hover:text-foam"
+            >
+              <SocialIcon name="instagram" class="h-4 w-4 shrink-0" />
+              @diveassociation.id
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-14 flex flex-col items-center justify-between gap-3 border-t border-foam/10 pt-6 text-xs text-foam/40 sm:flex-row">
+      <p>© 2025 IDCA – Indonesia Dive-tourism Company Association. All rights reserved.</p>
+      <a href="https://diveindonesia.org" class="hover:text-foam/70">diveindonesia.org</a>
+    </div>
+  </div>
+</footer>

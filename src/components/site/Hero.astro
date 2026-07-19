@@ -1,0 +1,134 @@
+---
+const stats = [
+  { value: "17,000+", id: "Titik Selam", en: "Dive Sites" },
+  { value: "50+", id: "Anggota", en: "Members" },
+  { value: "30+", id: "Destinasi", en: "Destinations" },
+  { value: "2025", id: "Kepengurusan Aktif", en: "Active Period" },
+];
+
+// Depth-gauge rail: a signature element referencing a dive computer readout
+const depths = [0, 5, 10, 15, 20, 25, 30, 35, 40];
+---
+
+<section id="top" class="relative overflow-hidden bg-abyss text-foam">
+  <div class="bg-contours absolute inset-0"></div>
+  <div
+    class="pointer-events-none absolute -right-40 -top-40 h-[32rem] w-[32rem] rounded-full bg-reef/20 blur-3xl"
+  >
+  </div>
+  <div
+    class="pointer-events-none absolute -left-32 top-1/3 h-96 w-96 rounded-full bg-coral/10 blur-3xl"
+  >
+  </div>
+
+  <!-- Depth-gauge signature rail -->
+  <div
+    class="pointer-events-none absolute right-4 top-32 hidden flex-col items-end gap-6 font-mono-idca text-[10px] text-foam/40 sm:right-8 md:flex lg:right-14"
+    aria-hidden="true"
+  >
+    {depths.map((d) => (
+      <div class="flex items-center gap-2">
+        <span>{d}m</span>
+        <span class="h-px w-6 bg-foam/30"></span>
+      </div>
+    ))}
+  </div>
+
+  <div class="relative mx-auto max-w-7xl px-5 pb-28 pt-40 sm:px-8 sm:pt-48">
+    <p class="font-mono-idca text-xs uppercase tracking-[0.25em] text-reef-light">
+      <span lang="id">Perkumpulan Usaha Wisata Selam Indonesia</span>
+      <span lang="en">Indonesia Dive-tourism Company Association</span>
+    </p>
+
+    <h1 class="mt-6 max-w-4xl font-display text-5xl font-extrabold uppercase leading-[0.95] tracking-tight text-balance sm:text-6xl lg:text-7xl">
+      Boost Dive <span class="text-coral">Tourism</span>
+    </h1>
+
+    <p class="mt-4 font-display text-xl font-semibold text-foam/70">
+      <span lang="id">Bersama</span>
+      <span lang="en">Together</span>
+      — <span class="italic">Bersama / Together</span>
+    </p>
+
+    <p class="mt-6 max-w-xl text-base leading-relaxed text-foam/70 sm:text-lg">
+      <span lang="id">
+        Menyatukan pelaku usaha wisata selam Indonesia untuk mendorong pertumbuhan
+        industri bahari yang berkelanjutan.
+      </span>
+      <span lang="en">
+        Uniting Indonesia's dive venture stakeholders to drive sustainable growth
+        of the maritime tourism industry.
+      </span>
+    </p>
+
+    <div class="mt-10 flex flex-wrap items-center gap-4">
+      <a
+        href="#about"
+        class="rounded-full bg-foam px-7 py-3 font-display text-sm font-bold text-abyss shadow-lg transition-transform hover:-translate-y-0.5"
+      >
+        <span lang="id">Tentang Kami</span>
+        <span lang="en">About Us</span>
+      </a>
+      <a
+        href="#members"
+        class="rounded-full border border-foam/30 px-7 py-3 font-display text-sm font-bold text-foam transition-colors hover:bg-foam/10"
+      >
+        <span lang="id">Bergabung</span>
+        <span lang="en">Join Us</span>
+      </a>
+    </div>
+
+    <div class="mt-16 flex items-center gap-3 text-foam/50">
+      <span class="font-mono-idca text-[10px] uppercase tracking-[0.3em]">Scroll</span>
+      <span class="h-px w-10 bg-foam/30"></span>
+    </div>
+  </div>
+
+  <!-- Stats strip -->
+  <div class="relative border-t border-foam/10 bg-abyss-deep/60">
+    <div class="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-5 py-10 sm:px-8 md:grid-cols-4">
+      {stats.map((s) => (
+        <div>
+          <p class="font-display text-3xl font-extrabold text-reef-light sm:text-4xl">{s.value}</p>
+          <p class="mt-1 text-xs font-medium uppercase tracking-wide text-foam/50 sm:text-sm">
+            <span lang="id">{s.id}</span>
+            <span lang="en">{s.en}</span>
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Chairman card -->
+  <div class="relative mx-auto max-w-7xl px-5 pb-20 pt-14 sm:px-8">
+    <div class="flex flex-col items-start gap-6 rounded-2xl border border-foam/10 bg-foam/5 p-6 backdrop-blur-sm sm:flex-row sm:items-center">
+      <img
+        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80"
+        alt="Ebram Harimurti"
+        class="h-20 w-20 rounded-full object-cover ring-2 ring-reef-light/40"
+        loading="lazy"
+      />
+      <div>
+        <p class="font-display text-lg font-bold text-foam">Ebram Harimurti</p>
+        <p class="text-sm text-foam/60">
+          <span lang="id">Ketua Terpilih · Periode 2025</span>
+          <span lang="en">Chairman · Period 2025</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wave divider into next section -->
+  <svg
+    class="relative block w-full text-sand"
+    viewBox="0 0 1440 80"
+    fill="none"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+  >
+    <path
+      d="M0 40C240 80 480 0 720 20C960 40 1200 80 1440 40V80H0V40Z"
+      fill="currentColor"
+    ></path>
+  </svg>
+</section>
