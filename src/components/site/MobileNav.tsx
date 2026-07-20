@@ -3,6 +3,7 @@ import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle } from "@/co
 import { Button } from "@/components/ui/button";
 import LangToggle from "./LangToggle";
 import ThemeToggle from "./ThemeToggle";
+import { useNavOverHero } from "@/lib/useNavOverHero";
 
 const links = [
   { href: "#about", id: "Tentang Kami", en: "About Us" },
@@ -12,6 +13,8 @@ const links = [
 ];
 
 export default function MobileNav() {
+  const overHero = useNavOverHero();
+
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -19,7 +22,9 @@ export default function MobileNav() {
           variant="ghost"
           size="icon"
           aria-label="Open menu"
-          className="text-heading hover:bg-accent rounded-full"
+          className={`rounded-full ${
+            overHero ? "text-foam hover:bg-foam/10" : "text-heading hover:bg-accent"
+          }`}
         >
           <Menu className="h-6 w-6" />
         </Button>

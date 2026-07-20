@@ -124,4 +124,17 @@ html[data-theme="light"] {
   .text-balance {
     text-wrap: balance;
   }
+
+  /* Navbar over dark hero: light controls until user scrolls */
+  #site-header[data-state="hero"] .site-nav-link {
+    color: rgb(255 255 255 / 0.85);
+  }
+
+  #site-header[data-state="hero"] .site-nav-link:hover {
+    color: var(--color-reef-light);
+  }
+
+  #site-header[data-state="solid"] .site-nav-link {
+    color: color-mix(in srgb, var(--color-heading) 80%, transparent);
+  }
 }

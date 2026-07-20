@@ -12,7 +12,7 @@ const links = [
 ];
 ---
 
-<header class="fixed inset-x-0 top-0 z-40" id="site-header">
+<header class="fixed inset-x-0 top-0 z-40" id="site-header" data-state="hero">
   <div
     id="header-inner"
     class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 transition-all duration-300 sm:px-8"
@@ -25,7 +25,7 @@ const links = [
       {links.map((l) => (
         <a
           href={l.href}
-          class="font-display text-sm font-semibold tracking-wide text-heading/80 transition-colors hover:text-reef"
+          class="site-nav-link font-display text-sm font-semibold tracking-wide transition-colors hover:text-reef"
         >
           <span lang="id">{l.id}</span>
           <span lang="en">{l.en}</span>
@@ -52,17 +52,23 @@ const links = [
 </header>
 
 <script is:inline>
-  const header = document.getElementById("header-inner");
+  const header = document.getElementById("site-header");
+  const inner = document.getElementById("header-inner");
+
   const onScroll = () => {
-    if (!header) return;
+    if (!header || !inner) return;
+
     if (window.scrollY > 24) {
-      header.classList.add("bg-background/90", "backdrop-blur-md", "shadow-sm", "py-3");
-      header.classList.remove("py-4");
+      header.dataset.state = "solid";
+      inner.classList.add("bg-background/90", "backdrop-blur-md", "shadow-sm", "py-3");
+      inner.classList.remove("py-4");
     } else {
-      header.classList.remove("bg-background/90", "backdrop-blur-md", "shadow-sm", "py-3");
-      header.classList.add("py-4");
+      header.dataset.state = "hero";
+      inner.classList.remove("bg-background/90", "backdrop-blur-md", "shadow-sm", "py-3");
+      inner.classList.add("py-4");
     }
   };
+
   document.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 </script>

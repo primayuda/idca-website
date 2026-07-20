@@ -1,5 +1,6 @@
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useNavOverHero } from "@/lib/useNavOverHero";
 
 type Theme = "light" | "dark";
 
@@ -17,6 +18,7 @@ function applyTheme(theme: Theme) {
 
 export default function ThemeToggle() {
   const [theme, setTheme] = useState<Theme>("light");
+  const overHero = useNavOverHero();
 
   useEffect(() => {
     setTheme(getInitialTheme());
@@ -33,7 +35,11 @@ export default function ThemeToggle() {
       type="button"
       onClick={toggle}
       aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
-      className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-heading transition-colors hover:bg-accent hover:text-accent-foreground"
+      className={`flex h-9 w-9 items-center justify-center rounded-full border transition-colors ${
+        overHero
+          ? "border-foam/30 text-foam hover:bg-foam/10"
+          : "border-border text-heading hover:bg-accent hover:text-accent-foreground"
+      }`}
     >
       {theme === "light" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
     </button>
