@@ -10,8 +10,7 @@ import {
   SelectContent,
   SelectItem,
 } from "@/components/ui/select";
-
-const WHATSAPP_NUMBER = "6281212343407";
+import { openWhatsApp } from "@/lib/whatsapp";
 
 const BUSINESS_TYPES = [
   { value: "dive-center", id: "Dive Center", en: "Dive Center" },
@@ -68,27 +67,45 @@ export default function RegisterForm() {
     return Object.keys(next).length === 0;
   }
 
+  function buildWhatsAppMessage() {
+    const business = BUSINESS_TYPES.find((b) => b.value === form.businessType);
+    const businessLabel = business
+      ? `${business.id} / ${business.en}`
+      : form.businessType || "—";
+    const empty = "—";
+
+    return [
+      "*Nama Perusahaan / Company Name*",
+      form.company.trim() || empty,
+      "",
+      "*Jenis Usaha / Business Type*",
+      businessLabel,
+      "",
+      "*Kota / Provinsi / City / Province*",
+      form.location.trim() || empty,
+      "",
+      "*Nama Contact Person*",
+      form.contactName.trim() || empty,
+      "",
+      "*No. WhatsApp / WhatsApp Number*",
+      form.whatsapp.trim() || empty,
+      "",
+      "*Email*",
+      form.email.trim() || empty,
+      "",
+      "*Website*",
+      form.website.trim() || empty,
+      "",
+      "*Pesan / Message*",
+      form.message.trim() || empty,
+    ].join("\n");
+  }
+
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
     if (!validate()) return;
 
-    const businessLabel =
-      BUSINESS_TYPES.find((b) => b.value === form.businessType)?.id ?? form.businessType;
-
-    const lines = [
-      "Halo IDCA, saya ingin mendaftar sebagai anggota:",
-      `Nama Perusahaan: ${form.company}`,
-      `Jenis Usaha: ${businessLabel}`,
-      `Kota/Provinsi: ${form.location}`,
-      `Contact Person: ${form.contactName}`,
-      `No. WhatsApp: ${form.whatsapp}`,
-      form.email ? `Email: ${form.email}` : null,
-      form.website ? `Website: ${form.website}` : null,
-      form.message ? `Pesan: ${form.message}` : null,
-    ].filter(Boolean);
-
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`;
-    window.open(url, "_blank", "noopener,noreferrer");
+    openWhatsApp(buildWhatsAppMessage());
     setSubmitted(true);
   }
 
